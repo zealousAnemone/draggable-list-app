@@ -48,3 +48,12 @@ button {
   padding: 5px;
 }
 
+.text-input {
+  padding: 5px;
+  margin: 11px 0;
+  font-size: 1em;
+  width: 270px;
+  min-height: 80px;
+  resize: none;
+}
+
