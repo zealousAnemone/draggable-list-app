@@ -1,11 +1,23 @@
 import { useState } from 'react';
 import Card from "./Card";
 
-const List = (props) => {
-  const [cards, setCards] = useState([{title: "Card 1", id: 1}, {title: "Card 2", id: 2}, {title: "Card 3", id: 3}]);
+const List = () => {
+  const [cards, setCards] = useState([]);
+  const [newCard, setNewCard] = useState("");
+
+  const addCard = () => {
+    const tempArr = [...cards];
+    const card = {title: newCard, id: cards.length};
+    tempArr.push(card);
+    setCards(tempArr);
+    setNewCard('');
+  }
 
   return (
     <div className="list">
+      <div className="add-card-form">
+        <input type="text" value={newCard} className="new-card-input" onChange={(e) => setNewCard(e.target.value)}/><button onClick={addCard}>New Card</button>
+      </div>
       {cards.map((card) => <Card title={card.title} key={card.id} />)}
     </div>
   )
